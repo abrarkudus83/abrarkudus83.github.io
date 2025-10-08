@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jangan Ngambek</title>
+  <style>
+    :root{
+      --bg:#fff7f9;
+      --card:#ffffff;
+      --accent:#ff6b8a;
+      --muted:#6b6b6b;
+      --glass: rgba(255,255,255,0.6);
+      --radius:18px;
+      --shadow: 0 8px 24px rgba(15,15,15,0.08);
+      --container:1100px;
+      --phone-color: #25D366; /* WhatsApp green */
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(circle at 10% 10%, #fff0f4, transparent 20%), var(--bg);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--container);
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.98));
+      border-radius:24px;
+      padding:34px;
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:center;
+    }
+    header.brand{
+      grid-column:1 / -1;
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .logo{
+      width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--accent), #ff9db3); color:white; font-weight:700; font-size:20px; box-shadow:0 6px 18px rgba(255,107,138,0.18);
+    }
+    h1{margin:0;font-size:28px;letter-spacing:0.2px}
+    p.lead{margin:8px 0 0;color:var(--muted)}
+    .content{
+      padding:18px 12px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow: 0 6px 18px rgba(16,16,16,0.04);
+    }
+    .message{
+      font-size:16px;line-height:1.6;color:#2a2a2a;
+      margin-bottom:18px;
+    }
+    .controls{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;gap:10px;align-items:center;justify-content:center;padding:12px 14px;border-radius:12px;border:0;cursor:pointer;font-weight:600;
+    }
+    .btn-primary{background:linear-gradient(90deg,var(--accent), #ff8fb3);color:white;box-shadow:0 8px 22px rgba(255,107,138,0.16)}
+    .btn-muted{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--muted)}
+    /* Right column (contact) */
+    .contact{
+      display:flex;flex-direction:column;gap:14px;
+    }
+    .contact .status{font-size:13px;color:var(--muted)}
+    .whatsapp-card{
+      display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;background:linear-gradient(180deg, rgba(37,211,102,0.08), rgba(37,211,102,0.04));
+      border:1px solid rgba(37,211,102,0.12);
+    }
+    .phone{
+      font-weight:700;font-size:16px;color:var(--phone-color)
+    }
+    .phone small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+    .hero-emoji{font-size:64px}
+    footer.note{grid-column:1 / -1;text-align:center;color:var(--muted);font-size:13px;margin-top:8px}
+    @media (max-width:900px){
+      .wrap{grid-template-columns:1fr; padding:22px}
+      .hero-emoji{font-size:48px}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="brand">
+      <div class="logo">JN</div>
+      <div>
+        <h1>Jangan Ngambek</h1>
+        <p class="lead">Halaman kecil untuk meredakan salah paham — sukses ceria, jangan ngambek ya 😉</p>
+      </div>
+    </header>
+
+    <section class="content card">
+      <div style="display:flex;gap:16px;align-items:flex-start">
+        <div class="hero-emoji">🌸</div>
+        <div style="flex:1">
+          <div class="message">Hai! Kalau lagi bete atau salah paham, sini deh kirim pesan manis — aku jaga suasana baik. Di halaman ini ada tombol cepat untuk hubungi via WhatsApp.
+          </div>
+          <div class="controls">
+            <a class="btn btn-primary" href="https://wa.me/62882008640644?text=Halo%20kak%2C%20aku%20lagi%20ngambek%20nih%20%F0%9F%98%94" target="_blank" rel="noopener">💬 Kirim WhatsApp</a>
+            <button class="btn btn-muted" onclick="copyText()">📋 Salin Nomor</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="contact card">
+      <div>
+        <div class="status">Nomor WhatsApp</div>
+        <div class="whatsapp-card">
+          <div style="font-size:22px">📱</div>
+          <div>
+            <div class="phone">+62 882-0086-40644</div>
+            <small>Ketuk "Kirim WhatsApp" untuk membuka chat.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="background:linear-gradient(180deg,#fff,#fffbfc);">
+        <strong>Tips</strong>
+        <p style="margin:6px 0 0;color:var(--muted);font-size:14px">Kirim pesan singkat yang jujur: mulai dengan permintaan maaf kecil, lalu jelaskan perasaanmu. Contoh: "Maaf ya, aku tadi kesal karena..."</p>
+      </div>
+
+      <div style="margin-top:auto;font-size:12px;color:var(--muted)">Butuh bantuan edit halaman? Tekan tombol di bawah.</div>
+    </aside>
+
+    <footer class="note">© Jangan Ngambek • Dibuat dengan ❤️</footer>
+  </main>
+
+  <script>
+    function copyText(){
+      const num = '+62882008640644';
+      navigator.clipboard?.writeText(num).then(()=>{
+        alert('Nomor disalin: ' + num);
+      }).catch(()=>{
+        prompt('Salin nomor ini:', num);
+      })
+    }
+  </script>
+</body>
+</html>
